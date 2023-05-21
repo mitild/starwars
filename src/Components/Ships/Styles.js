@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ShipContainer = styled.div`
+const ShipsContainer = styled.div`
   width: 900px;
   background-color: #1D1E1F;
   color: #B5B7B7;
@@ -9,17 +9,17 @@ const ShipContainer = styled.div`
   margin: 1em auto;
 `
 
-const ShipCardName = styled.p`
+const ShipsCardName = styled.p`
   font-size: 1.1rem;
   font-weight: 700;
   padding-bottom: .25em;
 `
 
-const ShipCardModel = styled.p`
+const ShipsCardModel = styled.p`
   font-size: .9rem;
 `
 
 
 
-export { ShipContainer, ShipCardName, ShipCardModel }
+export { ShipsContainer, ShipsCardName, ShipsCardModel }
 
