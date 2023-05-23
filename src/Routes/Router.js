@@ -11,10 +11,16 @@ const router = createBrowserRouter([
   {
     path: '/ships',
     element: <Ships />,
+    errorElement: <Error />
   },
   {
     path: 'ships/:shipid',
-    element: <Ship />
+    element: <Ship />,
+    errorElement: <Error />
+  },
+  {
+    path: '/*',
+    element: <Error />
   }
 ])
 

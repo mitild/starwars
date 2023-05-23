@@ -4,34 +4,57 @@ export const ShipsData = createContext()
 
 export const ShipsDataProvider = ({ children }) => {
   const [ ships, setShips ] = useState([])
+  const [ page, setPage ] = useState(1)
+  const [ loading, setLoading ] = useState(false)
   
-  const URL = "https://swapi.dev/api/starships/?page=1"
+  const URL = `https://swapi.dev/api/starships/?page=${page}`
 
-  useEffect(() => {
+  const fetchData = async () => {
     try {
-          const storedShipsData = localStorage.getItem('shipsData')
-          if(storedShipsData) {
-            setShips(JSON.parse(storedShipsData))
-          } 
-          else {
-            axios.get(URL)
-              .then(({ data }) => {
-                const shipsData = data.results.map(ship => {
-                  ship.id = ship.url.replace(/\D/g, "")
-                  return ship
-                  })
-                setShips(shipsData)
-                localStorage.setItem('shipsData', JSON.stringify(shipsData));
-                })
-          } 
+      await axios.get(URL)
+        .then(({ data }) => {
+          const shipsData = data.results.map(ship => {
+            ship.id = ship.url.replace(/\D/g, "")
+            return ship
+        })
+        if(page === 1) {
+          setShips(shipsData)
+        } 
+        else {
+          setShips(prevData => [ ...prevData, ...shipsData ])
+        }
+      })
     } 
     catch (error) {
       console.error('Error fetching data:', error);
     }
-  }, [])
+  }
 
+  useEffect(() => {
+    fetchData()
+  }, [page])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight
+      ) {
+        setLoading(true)
+        setTimeout(()=> {
+          setPage(prevPage => prevPage + 1)
+          setLoading(false)
+        }, 2000)
+      }
+    } 
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
+    console.log(ships)
   return (
-    <ShipsData.Provider value={ ships }>
+    <ShipsData.Provider value={{ ships, loading }}>
       { children }
     </ShipsData.Provider>
   )
