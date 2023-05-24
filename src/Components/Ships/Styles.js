@@ -25,10 +25,14 @@ const ShipsCardModel = styled.p`
 `
 const LoadingContainer = styled.div`
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  bottom: 5px;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
   text-align: center;
-  padding: 2em;
+  padding: 1em 2em;
+  border-radius: 52px;
   background-color: rgba(73, 70, 70, 0.5);
   font-family: 'Space Mono', monospace;
 `

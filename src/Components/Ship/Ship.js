@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import {ShipName, ShipContainer, ShipImg, ShipProperty, ShipDescription, ShipPropertySm, ShipDescriptionSm, Pilots, DescriptionWrapperTwo, DescriptionWrapper} from './Styles';
 import {ShipsData} from '../../Context/ShipsDataProvider';
 import Error from '../../Routes/Error';
+import Navbar from '../Navbar'
 
 const Ship = () => {
   const { ships } = useContext(ShipsData)
@@ -22,76 +23,77 @@ const Ship = () => {
 
   return (
     <>
-    {
-      shipEl !== undefined
-      
-      ? 
-      
-      <ShipContainer>
+      <Navbar />
+      {
+        shipEl !== undefined
+        
+        ? 
+        
+        <ShipContainer>
 
-        <ShipName>{ name }</ShipName>
-        <ShipImg src={ `https://starwars-visualguide.com/assets/img/starships/${id}.jpg` } alt={ `${ name } image`} onError={ handleError }/>
-        <DescriptionWrapper>
-          <ShipProperty>MODEL: 
-            <ShipDescription> { model }</ShipDescription>
-          </ShipProperty>
-          <ShipProperty>STARSHIP CLASS: 
-            <ShipDescription> { starship_class }</ShipDescription>
-          </ShipProperty>
-          <ShipProperty>MANUFACTURER:  
-            <ShipDescription> { manufacturer }</ShipDescription>
-          </ShipProperty>
-          <ShipProperty>COST:  
-            <ShipDescription> { cost_in_credits }</ShipDescription>
-          </ShipProperty>
-        </DescriptionWrapper>
-        <DescriptionWrapperTwo>
-          <div>
-            <ShipPropertySm>CREW: 
-              <ShipDescriptionSm> { crew }</ShipDescriptionSm>
-            </ShipPropertySm>
+          <ShipName>{ name }</ShipName>
+          <ShipImg src={ `https://starwars-visualguide.com/assets/img/starships/${id}.jpg` } alt={ `${ name } image`} onError={ handleError }/>
+          <DescriptionWrapper>
+            <ShipProperty>MODEL: 
+              <ShipDescription> { model }</ShipDescription>
+            </ShipProperty>
+            <ShipProperty>STARSHIP CLASS: 
+              <ShipDescription> { starship_class }</ShipDescription>
+            </ShipProperty>
+            <ShipProperty>MANUFACTURER:  
+              <ShipDescription> { manufacturer }</ShipDescription>
+            </ShipProperty>
+            <ShipProperty>COST:  
+              <ShipDescription> { cost_in_credits }</ShipDescription>
+            </ShipProperty>
+          </DescriptionWrapper>
+          <DescriptionWrapperTwo>
+            <div>
+              <ShipPropertySm>CREW: 
+                <ShipDescriptionSm> { crew }</ShipDescriptionSm>
+              </ShipPropertySm>
 
-            <ShipPropertySm>PASSENGER CAPACITY: 
-              <ShipDescriptionSm> { passengers }</ShipDescriptionSm>
-            </ShipPropertySm>
+              <ShipPropertySm>PASSENGER CAPACITY: 
+                <ShipDescriptionSm> { passengers }</ShipDescriptionSm>
+              </ShipPropertySm>
 
-            <ShipPropertySm>CARGO CAPACITY: 
-              <ShipDescriptionSm> { cargo_capacity }</ShipDescriptionSm>
-            </ShipPropertySm>
+              <ShipPropertySm>CARGO CAPACITY: 
+                <ShipDescriptionSm> { cargo_capacity }</ShipDescriptionSm>
+              </ShipPropertySm>
 
-            <ShipPropertySm>CONSUMABLES: 
-              <ShipDescriptionSm> { consumables }</ShipDescriptionSm>
-            </ShipPropertySm>
-          </div>
+              <ShipPropertySm>CONSUMABLES: 
+                <ShipDescriptionSm> { consumables }</ShipDescriptionSm>
+              </ShipPropertySm>
+            </div>
 
-          <div>
-            <ShipPropertySm>LENGTH: 
-              <ShipDescriptionSm> { length }</ShipDescriptionSm>
-            </ShipPropertySm>
+            <div>
+              <ShipPropertySm>LENGTH: 
+                <ShipDescriptionSm> { length }</ShipDescriptionSm>
+              </ShipPropertySm>
 
-            <ShipPropertySm>MAXIMUM ATMOSPHERIC SPEED: 
-              <ShipDescriptionSm> { max_atmosphering_speed }</ShipDescriptionSm>
-            </ShipPropertySm>
+              <ShipPropertySm>MAXIMUM ATMOSPHERIC SPEED: 
+                <ShipDescriptionSm> { max_atmosphering_speed }</ShipDescriptionSm>
+              </ShipPropertySm>
 
-            <ShipPropertySm>HYPERDRIVE RATING: 
-              <ShipDescriptionSm> { hyperdrive_rating }</ShipDescriptionSm>
-            </ShipPropertySm>
+              <ShipPropertySm>HYPERDRIVE RATING: 
+                <ShipDescriptionSm> { hyperdrive_rating }</ShipDescriptionSm>
+              </ShipPropertySm>
 
-            <ShipPropertySm>MAXIMUM SPEED IN REALSPACE: 
-              <ShipDescriptionSm> { MGLT }</ShipDescriptionSm>
-            </ShipPropertySm>
-          </div>
-        </DescriptionWrapperTwo>
+              <ShipPropertySm>MAXIMUM SPEED IN REALSPACE: 
+                <ShipDescriptionSm> { MGLT }</ShipDescriptionSm>
+              </ShipPropertySm>
+            </div>
+          </DescriptionWrapperTwo>
 
-        <DescriptionWrapper>
-          <ShipPropertySm>PILOTS:</ShipPropertySm>
-          <Pilots src="" alt="" /> 
-        </DescriptionWrapper>
+          <DescriptionWrapper>
+            <ShipPropertySm>PILOTS:</ShipPropertySm>
+            <Pilots src="" alt="" /> 
+          </DescriptionWrapper>
 
-      </ShipContainer>
-      :
-      <Error /> 
-  }
+        </ShipContainer>
+        :
+        <Error /> 
+      }
     </>
   )
 }
