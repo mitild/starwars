@@ -26,6 +26,7 @@ const SignIn = styled.div`
   color: #FFF;
   font-weight: 700;
   position: relative;
+  cursor: pointer;
   &::before {
     content: '';
     background: url('https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg') no-repeat;

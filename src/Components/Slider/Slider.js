@@ -26,28 +26,28 @@ const Slider = () => {
       infinite={ true }
     >
       <Card 
-        imageUrl={one}
+        imageurl={one}
         title={ titleOne }
         subtitle={ subtitleOne }
         hasImg= { true }
       />
       <Card 
-        imageUrl={two}
+        imageurl={two}
         title={ titleTwo }
         subtitle={ subtitleTwo }
       />
       <Card 
-        imageUrl={three}
+        imageurl={three}
         title={ titleThree }
         subtitle={ subtitleThree }
       />
       <Card 
-        imageUrl={four}
+        imageurl={four}
         title={ titleFour }
         subtitle={ subtitleFour }
       />
       <Card 
-        imageUrl={five}
+        imageurl={five}
         title={ titleFive }
         subtitle={ subtitleFive }
       />

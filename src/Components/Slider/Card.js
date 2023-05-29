@@ -1,14 +1,14 @@
 import {CardContainer, CardSubtitle, CardTitle, CardBtn, CardDescription, CardImage} from './Styles';
 import { Link } from 'react-router-dom'
 
-const Card = ({imageUrl, title, subtitle, hasImg = false }) => {
+const Card = ({imageurl, title, subtitle, hasImg = false }) => {
 
   return (
-    <CardContainer imageUrl={ imageUrl }>
+    <CardContainer imageurl={ imageurl }>
       <CardDescription>
         { hasImg ? <CardImage src={ title }alt='anniversary logo'/> : <CardTitle>{ title }</CardTitle>}
-        <CardSubtitle hasImg>{ subtitle }</CardSubtitle>
-        <Link to={'/ships'}><CardBtn hasImg>Explore</CardBtn></Link> 
+        <CardSubtitle>{ subtitle }</CardSubtitle>
+        <Link to={'/ships'}><CardBtn>find movie's ship</CardBtn></Link> 
       </CardDescription>
     </CardContainer>
   )

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const CardContainer = styled.div`
-  background: ${props => `url(${props.imageUrl})`};
+  background: ${props => `url(${props.imageurl})`};
   background-position: center;
   background-size: cover;
   height: 640px;
@@ -16,7 +16,7 @@ const CardContainer = styled.div`
 `
 
 const CardDescription = styled.div`
-  width:  600px;
+  width:  550px;
   display: flex;
   flex-direction: column;
 `
@@ -34,14 +34,14 @@ const CardSubtitle = styled.h3`
 `
 
 const CardBtn = styled.button`
-  padding: 1em 5em;
+  padding: 1em 4em;
   background-color: #FADE4B;
   border: 1px solid transparent;
   color: #000000;
   border-radius: 35px;
   text-transform: uppercase;
   font-weight: bolder;
-  font-size: 1rem;
+  font-size: .9rem;
   box-shadow: inset 0 2px 0 0 rgba(255,255,255,0.2);
   margin-top: 2.5em;
   cursor: pointer;

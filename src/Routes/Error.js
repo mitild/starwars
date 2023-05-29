@@ -10,7 +10,7 @@ const Error = () => {
     <>
       <Navbar />
       <ErrorContainer>
-        <img src={ errorImg } alt="Error message" width='500px'/>
+        <img src={ errorImg } alt="Error message" width='450px'/>
         <ErrorH2>THIS PAGE IS NOT FULLY ARMED AND OPERATIONAL.
         </ErrorH2>
         <p>{ error.data || error.statusText }</p>
@@ -28,6 +28,7 @@ const ErrorContainer = styled.div`
   flex-direction: column;
   gap: 2em;
   height: 100vh;
+  padding-bottom: 6em;
 `
 
 const ErrorH2 = styled.h2`
