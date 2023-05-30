@@ -132,4 +132,11 @@ const WelcomeTitle = styled.h1`
   text-align: center;
 `
 
-export { ModalContainer, FormWrapper, ModalLogin, ModalSignin, ModalSpan, ModalInput, ModalBtn, ModalCloseBtn, TitleWrapper, WelcomeTitle }
+const LoginMessage = styled.p`
+  margin-top: .7em;
+  color: #d22a2a;
+  font-size: 1.7rem;
+  font-weight: 300;
+`
+
+export { ModalContainer, FormWrapper, ModalLogin, ModalSignin, ModalSpan, ModalInput, ModalBtn, ModalCloseBtn, TitleWrapper, WelcomeTitle, LoginMessage }

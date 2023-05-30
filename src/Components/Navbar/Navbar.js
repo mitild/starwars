@@ -3,21 +3,27 @@ import { Logo, NavContainer, KidsLogo, SignIn, NavMenu, NavItem, NavLogoWrapper 
 import logo from '../../Assets/logo.png'
 import kids from '../../Assets/kids.svg'
 import { Link, useNavigate } from 'react-router-dom'
-import { ModalWindow } from '../ModalWindow/ModalWindow';
 import { UserContext } from '../../Context/UserContextProvider';
+import { LoginModal } from '../LoginModal/LoginModal';
 
 const Navbar = () => {
-const { setModal, isLogged, setIsLogged, setWelcome } = useContext(UserContext)
+const { setModal, isLogged, setIsLogged, setWelcome, setNotLoggedMessage } = useContext(UserContext)
 const navigate = useNavigate()
 
-const handleLogin = () => {
+const handleLog = () => {
+  setNotLoggedMessage(false)
   const handleLogOut = () => {
     navigate('/')
     setIsLogged(prev => !prev)
     setWelcome(false)
   }
-  isLogged ? handleLogOut() : setModal(prev => !prev)
+  const handleLogin = () => {
+    setModal(prev => !prev)
+    navigate('/login')
+  }
+  isLogged ? handleLogOut() : handleLogin()
 }
+
 // console.log(modal)
   return (
     <>
@@ -26,7 +32,7 @@ const handleLogin = () => {
           <Link to={'*'}><KidsLogo src={ kids }/></Link>
           <Link to={'/'}><Logo src={ logo } /></Link>
           <SignIn
-            onClick={ handleLogin }
+            onClick={ handleLog }
           >{isLogged ? 'LOG OUT' : 'SIGN IN'}
           </SignIn>
         </NavLogoWrapper>
@@ -35,7 +41,7 @@ const handleLogin = () => {
           <Link to={'/ships'} style={{ textDecoration: 'none'}}><NavItem>Ships</NavItem></Link>
         </NavMenu>
       </NavContainer>
-      <ModalWindow />
+      <LoginModal />
     </>
   )
 }

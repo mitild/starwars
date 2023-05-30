@@ -1,12 +1,12 @@
 import React, { useEffect }from 'react'
-import {FormWrapper, ModalContainer, ModalInput, ModalBtn, ModalCloseBtn, TitleWrapper, ModalSpan, ModalLogin, ModalSignin} from './Styles';
+import { FormWrapper, ModalContainer, ModalInput, ModalBtn, ModalCloseBtn, TitleWrapper, ModalSpan, ModalLogin, ModalSignin, LoginMessage } from './Styles';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/UserContextProvider';
 import { useNavigate } from 'react-router-dom';
 import { WelcomeComponent } from './WelcomeComponent';
 
-export const ModalWindow = () => {
-  const { modal, setModal, isLogged, setIsLogged, isSigninIn, setIsSigninIn, required, setRequired, welcome, setWelcome, user, setUser, usersDB, setUsersDB } = useContext(UserContext)
+export const LoginModal = () => {
+  const { modal, setModal, isLogged, setIsLogged, isSigninIn, setIsSigninIn, required, setRequired, welcome, setWelcome, user, setUser, usersDB, setUsersDB, notLoggedMessage, setNotLoggedMessage } = useContext(UserContext)
   const navigate = useNavigate()
 
   const handleLoginOrSubmit = (value) => {
@@ -20,6 +20,8 @@ export const ModalWindow = () => {
 
   const handleLoginWindow = () => {
     setModal(prev => !prev)
+    setNotLoggedMessage(false)
+    navigate('/')
     setUser({
       email: '',
       password: '',
@@ -48,7 +50,7 @@ export const ModalWindow = () => {
         alert("Email already registered, would you prefer to Login? Click in the 'Log in' tab. Else if you're facing some troubles please contact us")
       }
       else if(!isSigninIn && emailExists && passwordMatches) {
-        alert(`go to Welcome page ${user.user}`)
+        // alert(`go to Welcome page ${user.user}`)
         setIsLogged(true)
         setWelcome(true)
         setTimeout(() => {
@@ -64,7 +66,9 @@ export const ModalWindow = () => {
         setWelcome(true)
         setTimeout(() => {
           setIsLogged(true)
-          alert(`Welcome ${user.user}! You are now signed in`)
+          navigate('/ships')          
+          setModal(false)
+          // alert(`Welcome ${user.user}! You are now signed in`)
         }, 2000)
       }
       else if(!emailExists && !isSigninIn){
@@ -132,6 +136,7 @@ export const ModalWindow = () => {
           required= { required }
         />
         <ModalBtn>{isSigninIn ? 'Sign in' : 'Log in'}</ModalBtn>
+        { notLoggedMessage && <LoginMessage>Ops... You need to login to access this content</LoginMessage>}
         <ModalCloseBtn onClick={ handleLoginWindow }>X</ModalCloseBtn>
       </FormWrapper>
     </ModalContainer>

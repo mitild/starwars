@@ -25,8 +25,10 @@ export const UserContextProvider = ({ children }) => {
     return loggedData ? loggedData : false
   })
 
+  const [ notLoggedMessage, setNotLoggedMessage ] = useState(false)
+
   return (
-    <UserContext.Provider value={{ modal, setModal, isLogged, setIsLogged, isSigninIn, setIsSigninIn, required, setRequired, welcome, setWelcome, user, setUser, usersDB, setUsersDB }}>
+    <UserContext.Provider value={{ modal, setModal, isLogged, setIsLogged, isSigninIn, setIsSigninIn, required, setRequired, welcome, setWelcome, user, setUser, usersDB, setUsersDB, notLoggedMessage, setNotLoggedMessage }}>
       { children }
     </UserContext.Provider>
   )
