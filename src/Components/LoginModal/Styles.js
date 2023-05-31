@@ -24,7 +24,7 @@ const FormWrapper = styled.form`
   justify-content: center;
   align-items: center;
   width: 600px;
-  height: 455px;
+  height: 480px;
   padding: 5em 5em 3em;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,.3);
   border-radius: 5px;
@@ -135,7 +135,7 @@ const WelcomeTitle = styled.h1`
 const LoginMessage = styled.p`
   margin-top: .7em;
   color: #d22a2a;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 300;
 `
 

@@ -1,4 +1,4 @@
-import {FormWrapper, ModalContainer, ModalCloseBtn, TitleWrapper, WelcomeTitle } from './Styles';
+import { FormWrapper, ModalContainer, ModalCloseBtn, TitleWrapper, WelcomeTitle } from './Styles';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/UserContextProvider';
 

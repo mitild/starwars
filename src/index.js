@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <ShipsDataProvider>
       <UserContextProvider>
-      <RouterProvider router={ Router } />
+        <RouterProvider router={ Router } />
       </UserContextProvider>
     </ShipsDataProvider>
   </React.StrictMode>

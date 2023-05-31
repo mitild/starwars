@@ -1,21 +1,20 @@
 import {useContext} from 'react';
 import { useParams } from 'react-router-dom';
-import {ShipName, ShipContainer, ShipImg, ShipProperty, ShipDescription, ShipPropertySm, ShipDescriptionSm, Pilots, DescriptionWrapperTwo, DescriptionWrapper} from './Styles';
+import { ShipName, ShipContainer, ShipImg, ShipProperty, ShipDescription, ShipPropertySm, ShipDescriptionSm, DescriptionWrapperTwo, DescriptionWrapper,CardWrapper } from './Styles';
+import CardThumbnails from './CardThumbnails';
 import {ShipsData} from '../../Context/ShipsDataProvider';
 import Error from '../../Routes/Error';
-import Navbar from '../Navbar'
 
 const Ship = () => {
-  const { ships } = useContext(ShipsData)
+  const { ships, shipsArr } = useContext(ShipsData)
   const { shipid } = useParams()
 
   if (ships.length === 0) {
     return <p>Loading...</p>;
   }
 
-  const shipEl = ships.find(ship => ship.id === shipid)
-
-  const { name, model, starship_class , manufacturer, cost_in_credits, crew, passengers, cargo_capacity, consumables, length, max_atmosphering_speed, hyperdrive_rating, MGLT, id } = shipEl
+  const shipEl = shipsArr.find(ship => ship.name.split(' ').join('-') === shipid)
+  const { name, model, starship_class , manufacturer, cost_in_credits, crew, passengers, cargo_capacity, consumables, length, max_atmosphering_speed, hyperdrive_rating, MGLT, id, pilots, films } = shipEl
 
   function handleError(e){
     e.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
@@ -23,7 +22,6 @@ const Ship = () => {
 
   return (
     <>
-      <Navbar />
       {
         shipEl !== undefined
         
@@ -85,10 +83,16 @@ const Ship = () => {
             </div>
           </DescriptionWrapperTwo>
 
-          <DescriptionWrapper>
-            <ShipPropertySm>PILOTS:</ShipPropertySm>
-            <Pilots src="" alt="" /> 
-          </DescriptionWrapper>
+          <CardWrapper>
+            <div>
+              <ShipPropertySm>PILOTS:</ShipPropertySm>
+              <CardThumbnails objects={ pilots } />
+            </div>
+            <div>
+              <ShipPropertySm>FILMS:</ShipPropertySm>
+              <CardThumbnails objects={ films } />
+            </div>
+          </CardWrapper>
 
         </ShipContainer>
         :

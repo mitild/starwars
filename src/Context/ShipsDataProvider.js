@@ -6,6 +6,7 @@ export const ShipsDataProvider = ({ children }) => {
   const [ ships, setShips ] = useState([])
   const [ page, setPage ] = useState(1)
   const [ loading, setLoading ] = useState(false)
+  const shipsArr = JSON.parse(localStorage.getItem('ships'))
   
   const URL = `https://swapi.dev/api/starships/?page=${page}`
 
@@ -31,11 +32,20 @@ export const ShipsDataProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    fetchData()
+    fetchData();
   }, [page])
 
+  useEffect(() => {
+    if(page > 1) {
+      localStorage.setItem('ships', JSON.stringify(ships))
+    }
+  }, [ships])
+
+  
+  
+
   return (
-    <ShipsData.Provider value={{ ships, loading, setLoading, page, setPage }}>
+    <ShipsData.Provider value={{ ships, loading, setLoading, page, setPage, shipsArr }}>
       { children }
     </ShipsData.Provider>
   )

@@ -66,10 +66,49 @@ const DescriptionWrapperTwo = styled.div`
   display: flex;
   gap: 2em;
 `
-
-const Pilots = styled.img`
-  width: 50px;
+const CardWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
-export { ShipContainer, ShipName, ShipImg, ShipProperty, ShipDescription, ShipPropertySm, ShipDescriptionSm, DescriptionWrapper,  DescriptionWrapperTwo, Pilots }
+const ObjectsThumb = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: .7em .3em .5em 0;
+`
+
+const CardMain = styled.div`
+  display: flex;
+  gap: 1em;
+  background-color: #FFF;
+  width: 60%;
+  margin: 3em auto;
+  font-family: "din-condensed", sans-serif;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.3);
+`
+
+const CardTitle = styled.h3`
+  color: #181818;
+  margin: .6em 0 .4em;
+`
+
+const CardProps = styled.p`
+  color: #514f4f;
+  font-weight: 300;
+  margin: 0 2em .4em 0;
+`
+
+const CardImg = styled.img`
+  width: 270px;
+  object-fit: cover;
+  border-radius: 5px 0 0 5px;
+`
+
+export { ShipContainer, ShipName, ShipImg, ShipProperty, ShipDescription, ShipPropertySm, ShipDescriptionSm, DescriptionWrapper,  DescriptionWrapperTwo, ObjectsThumb, CardMain, CardTitle, CardProps, CardImg, CardWrapper }
 

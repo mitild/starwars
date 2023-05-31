@@ -24,7 +24,6 @@ const handleLog = () => {
   isLogged ? handleLogOut() : handleLogin()
 }
 
-// console.log(modal)
   return (
     <>
       <NavContainer>

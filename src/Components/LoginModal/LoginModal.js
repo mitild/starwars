@@ -21,6 +21,7 @@ export const LoginModal = () => {
   const handleLoginWindow = () => {
     setModal(prev => !prev)
     setNotLoggedMessage(false)
+    setIsSigninIn(false)
     navigate('/')
     setUser({
       email: '',
@@ -50,7 +51,6 @@ export const LoginModal = () => {
         alert("Email already registered, would you prefer to Login? Click in the 'Log in' tab. Else if you're facing some troubles please contact us")
       }
       else if(!isSigninIn && emailExists && passwordMatches) {
-        // alert(`go to Welcome page ${user.user}`)
         setIsLogged(true)
         setWelcome(true)
         setTimeout(() => {
@@ -68,7 +68,6 @@ export const LoginModal = () => {
           setIsLogged(true)
           navigate('/ships')          
           setModal(false)
-          // alert(`Welcome ${user.user}! You are now signed in`)
         }, 2000)
       }
       else if(!emailExists && !isSigninIn){
@@ -85,10 +84,11 @@ export const LoginModal = () => {
     localStorage.setItem('loggedUser', JSON.stringify(isLogged))
   }, [isLogged])
 
-  console.log(isLogged)
+  const getUserName = user.email && usersDB.find(eachUser => eachUser.email === user.email)
+  const userName = getUserName ? getUserName.user : ''
 
   return (
-    welcome ? <WelcomeComponent userName={ user.user }/> :
+    welcome ? <WelcomeComponent userName={ userName }/> :
     <ModalContainer visible={modal.toString() }>
       <FormWrapper onSubmit={ handleSubmit }>
         <TitleWrapper>
@@ -124,7 +124,7 @@ export const LoginModal = () => {
           id='email'
           value={ user.email }
           onChange={ handleUser }
-          required
+          required= { required }
         />
         <ModalInput 
           placeholder='Password'

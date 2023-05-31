@@ -4,37 +4,51 @@ import Ship from "../Components/Ship/Ship"
 import Error from "./Error";
 import Home from "../Components/Home/Home";
 import { LoginModal } from "../Components/LoginModal/LoginModal";
-import { ProtectedRoutes } from '../Components/ProtectedRoutes/ProtectedRoutes';
+import { ProtectedRoutes } from '../Components/ProtectedRoute/ProtectedRoutes';
+import Cards from "../Components/Ship/Cards";
+import Layout from "./Layout";
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Layout />,
     errorElement: <Error />,
-    children: [{
-      path: '/login',
-      element: <LoginModal />,
-      errorElement: <Error />
-    }]
-  },
-  { element: <ProtectedRoutes />,
     children: [
       {
-        path: '/ships',
-        element: <Ships />,
-        errorElement: <Error />
+        path: '/',
+        element: <Home />,
+        children: [
+          {
+            path: 'login',
+            element: <LoginModal />,
+          }
+        ]
+      },
+      
+      {  
+      path: '/ships',
+      element: <ProtectedRoutes />,
+      children: [
+          {
+            index: true,
+            element: <Ships />,
+          },
+          {
+            path: '/ships/:shipid',
+            element: <Ship />,
+          },
+          {
+            path: '/ships/:shipid/:id',
+            element: <Cards />,
+          },
+        ]
       },
       {
-        path: 'ships/:shipid',
-        element: <Ship />,
-        errorElement: <Error />
+        path: '*',
+        element: <Error />,
       }
     ]
-  },
-  {
-    path: '/*',
-    element: <Error />,
-    errorElement: <Error />
-  }
-])
+    }
+  
+  ])
 
 export default router

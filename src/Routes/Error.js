@@ -8,12 +8,12 @@ const Error = () => {
   console.log(error)
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <ErrorContainer>
         <img src={ errorImg } alt="Error message" width='450px'/>
         <ErrorH2>THIS PAGE IS NOT FULLY ARMED AND OPERATIONAL.
         </ErrorH2>
-        <p>{ error.data || error.statusText }</p>
+        {/* <p>{ error.data ? error.data : error.statusText }</p> */}
       </ErrorContainer>
     </>
   )
