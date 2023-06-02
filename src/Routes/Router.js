@@ -7,6 +7,7 @@ import { LoginModal } from "../Components/LoginModal/LoginModal";
 import { ProtectedRoutes } from '../Components/ProtectedRoute/ProtectedRoutes';
 import Cards from "../Components/Ship/Cards";
 import Layout from "./Layout";
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -23,7 +24,6 @@ const router = createBrowserRouter([
           }
         ]
       },
-      
       {  
       path: '/ships',
       element: <ProtectedRoutes />,

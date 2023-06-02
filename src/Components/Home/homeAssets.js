@@ -1,3 +1,4 @@
+// This content is printed in the Homepage Slider
 const one = 'https://lumiere-a.akamaihd.net/v1/images/roj40-hero-desktop_82ea35b1.jpeg'
 
 const overOne = 'https://lumiere-a.akamaihd.net/v1/images/roj40-logotitle-800-500_19fb096e.png'

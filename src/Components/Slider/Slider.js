@@ -3,6 +3,7 @@ import "react-multi-carousel/lib/styles.css"
 import Card from "./Card";
 import { one, two, three, four, five, titleOne, subtitleOne, titleTwo,  subtitleTwo,titleThree, subtitleThree, titleFour, subtitleFour,titleFive, subtitleFive  } from "../Home/homeAssets";
 
+// Home page Slider
 const Slider = () => {
 
     const responsive = {

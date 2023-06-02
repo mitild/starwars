@@ -6,16 +6,24 @@ import {ShipsData} from '../../Context/ShipsDataProvider';
 import Error from '../../Routes/Error';
 
 const Ship = () => {
+  // All elements provided by USerContext
   const { ships, shipsArr } = useContext(ShipsData)
+
+  // Parameter with visited ship's name
   const { shipid } = useParams()
 
-  if (ships.length === 0) {
+  // Print loading... while fecthing for data
+  if (ships.length === 0 || shipsArr.length === 0) {
     return <p>Loading...</p>;
   }
 
-  const shipEl = shipsArr.find(ship => ship.name.split(' ').join('-') === shipid)
+  // Get the ship that was visited and clicked by it's name provided by the useParams hook.
+  const shipEl = shipsArr ? shipsArr.find(ship => ship.name.split(' ').join('-') === shipid) : ships.find(ship => ship.name.split(' ').join('-') === shipid)
+
+  // Destructure the shipEl object
   const { name, model, starship_class , manufacturer, cost_in_credits, crew, passengers, cargo_capacity, consumables, length, max_atmosphering_speed, hyperdrive_rating, MGLT, id, pilots, films } = shipEl
 
+  // Catch for those ships without images
   function handleError(e){
     e.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
   }
@@ -63,7 +71,6 @@ const Ship = () => {
                 <ShipDescriptionSm> { consumables }</ShipDescriptionSm>
               </ShipPropertySm>
             </div>
-
             <div>
               <ShipPropertySm>LENGTH: 
                 <ShipDescriptionSm> { length }</ShipDescriptionSm>
@@ -93,7 +100,6 @@ const Ship = () => {
               <CardThumbnails objects={ films } />
             </div>
           </CardWrapper>
-
         </ShipContainer>
         :
         <Error /> 

@@ -7,20 +7,28 @@ import { UserContext } from '../../Context/UserContextProvider';
 import { LoginModal } from '../LoginModal/LoginModal';
 
 const Navbar = () => {
+// All elements provided by USerContext
 const { setModal, isLogged, setIsLogged, setWelcome, setNotLoggedMessage } = useContext(UserContext)
 const navigate = useNavigate()
 
+// Handle click on the Login / Sign in Navbar's button
 const handleLog = () => {
   setNotLoggedMessage(false)
+
+  // Actions when user is logged in (log out)
   const handleLogOut = () => {
     navigate('/')
     setIsLogged(prev => !prev)
     setWelcome(false)
   }
+
+  // Actions when user is not logged in (log in)
   const handleLogin = () => {
     setModal(prev => !prev)
     navigate('/login')
   }
+
+  // Conditionally apply the right action upon user's logged state
   isLogged ? handleLogOut() : handleLogin()
 }
 
