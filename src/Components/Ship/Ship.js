@@ -13,7 +13,7 @@ const Ship = () => {
   const { shipid } = useParams()
 
   // Print loading... while fecthing for data
-  if (ships.length === 0 || shipsArr.length === 0) {
+  if (ships.length === 0) {
     return <p>Loading...</p>;
   }
 
