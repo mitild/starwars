@@ -1,4 +1,5 @@
 import { styled } from "styled-components"
+import {mobileQuery} from '../../StyledVariables';
 
 const ShipContainer = styled.div`
   display: flex;
@@ -7,9 +8,8 @@ const ShipContainer = styled.div`
   align-items: center;
   gap: 1.5em;
   width: 100%;
-  height: 100vh;
   margin: 0 auto;
-  padding: 3em;
+  padding: 1.5em 3em;
   text-transform: uppercase;
   position:relative;
   &:before {
@@ -28,7 +28,9 @@ const ShipContainer = styled.div`
     background-size: cover;
     z-index: -1;
   }
-
+  @media (max-width: ${mobileQuery}px) {
+    padding: 1.2em;
+  }
 `
 
 const ShipName = styled.h2`
@@ -71,6 +73,12 @@ const CardWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${mobileQuery}px) {
+    flex-direction: column;
+    gap: 1.2em;
+    align-items: start;
+    width: 100%;
+  }
 `
 
 const ObjectsThumb = styled.img`
@@ -91,23 +99,42 @@ const CardMain = styled.div`
   font-size: 1.3rem;
   border-radius: 5px;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,.3);
+  @media (max-width: ${mobileQuery}px) {
+    flex-direction: column;
+    gap: 1.2em;
+    align-items: start;
+    width: 100%;
+    margin: 0 auto 3em;
+    padding-bottom: 2em;
+    width: 93%;
+  }
+  
 `
 
 const CardTitle = styled.h3`
   color: #181818;
   margin: .6em 0 .4em;
+  @media (max-width: ${mobileQuery}px) {
+    padding: 0 1.2em;
+  }
 `
 
 const CardProps = styled.p`
   color: #514f4f;
   font-weight: 300;
   margin: 0 2em .4em 0;
+  @media (max-width: ${mobileQuery}px) {
+    padding: 0 1.2em;
+  }
 `
 
 const CardImg = styled.img`
   width: 270px;
   object-fit: cover;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 0;
+  @media (max-width: ${mobileQuery}px) {
+    width: 100%;
+  }
 `
 
 export { ShipContainer, ShipName, ShipImg, ShipProperty, ShipDescription, ShipPropertySm, ShipDescriptionSm, DescriptionWrapper,  DescriptionWrapperTwo, ObjectsThumb, CardMain, CardTitle, CardProps, CardImg, CardWrapper }

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mobileQuery } from '../../StyledVariables';
 
 const ShipsContainer = styled.div`
   width: 900px;
@@ -11,6 +12,9 @@ const ShipsContainer = styled.div`
   &:hover {
     background-color: #B5B7B7;
     color: #1D1E1F;
+  }
+  @media (max-width: ${mobileQuery}px) {
+    width: 92%;
   }
 `
 

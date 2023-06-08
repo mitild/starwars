@@ -25,6 +25,7 @@ const Slider = () => {
       responsive={ responsive }
       autoPlay={ true }
       infinite={ true }
+      removeArrowOnDeviceType={["tablet", "mobile"]}
     >
       <Card 
         imageurl={one}

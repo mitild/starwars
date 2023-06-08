@@ -67,8 +67,8 @@ const Ship = () => {
                 <ShipDescriptionSm> { cargo_capacity }</ShipDescriptionSm>
               </ShipPropertySm>
 
-              <ShipPropertySm>CONSUMABLES: 
-                <ShipDescriptionSm> { consumables }</ShipDescriptionSm>
+              <ShipPropertySm>MAXIMUM SPEED IN REALSPACE: 
+                <ShipDescriptionSm> { MGLT }</ShipDescriptionSm>
               </ShipPropertySm>
             </div>
             <div>
@@ -84,8 +84,8 @@ const Ship = () => {
                 <ShipDescriptionSm> { hyperdrive_rating }</ShipDescriptionSm>
               </ShipPropertySm>
 
-              <ShipPropertySm>MAXIMUM SPEED IN REALSPACE: 
-                <ShipDescriptionSm> { MGLT }</ShipDescriptionSm>
+              <ShipPropertySm>CONSUMABLES: 
+                <ShipDescriptionSm> { consumables }</ShipDescriptionSm>
               </ShipPropertySm>
             </div>
           </DescriptionWrapperTwo>

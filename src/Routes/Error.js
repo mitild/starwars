@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 import errorImg from '../Assets/errorImg.webp'
 import Navbar from "../Components/Navbar"
+import { mobileQuery } from '../StyledVariables';
 
 // Custom error component for the entire web
 const Error = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <ErrorContainer>
-        <img src={ errorImg } alt="Error message" width='450px'/>
+        <ErrorImg src={ errorImg } alt="Error message"/>
         <ErrorH2>THIS PAGE IS NOT FULLY ARMED AND OPERATIONAL.</ErrorH2>
       </ErrorContainer>
     </>
@@ -29,6 +30,17 @@ const ErrorContainer = styled.div`
 
 const ErrorH2 = styled.h2`
   margin-top: 3em;
+  @media (max-width: ${mobileQuery}px) {
+    width: 300px;
+    text-align: center;
+  }
+`
+
+const ErrorImg = styled.img`
+  width: 450px;
+  @media (max-width: ${mobileQuery}px) {
+    width: 300px;
+  }
 `
 
 export default Error  

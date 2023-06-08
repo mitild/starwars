@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import login from '../../Assets/login-logo.png'
+import {mobileQuery} from '../../StyledVariables';
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -23,7 +24,7 @@ const FormWrapper = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  max-width: 600px;
   height: 480px;
   padding: 5em 5em 3em;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,.3);
@@ -31,6 +32,10 @@ const FormWrapper = styled.form`
   background: url(${login}) #181818 no-repeat;
   background-position: 50% 8%;
   background-size: 330px;
+  @media (max-width: ${mobileQuery}px) {
+    padding: 6em 1.2em 3em;
+    width: 95%;
+  }
 `
 
 const TitleWrapper = styled.div`
@@ -125,6 +130,10 @@ const ModalCloseBtn = styled.button`
   transition: all .3s ease;
   &:hover {
     color: #3f6dac;
+  }
+  @media (max-width: ${mobileQuery}px) {
+    top: 10px;
+    right: 1px;
   }
 `
 const WelcomeTitle = styled.h1`

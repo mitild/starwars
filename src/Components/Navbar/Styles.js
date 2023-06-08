@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mobileQuery } from '../../StyledVariables';
 
 const NavContainer = styled.nav`
   width: 100%;
@@ -13,10 +14,16 @@ const NavContainer = styled.nav`
   align-items: center;
   padding: 1.2em 3em 0;
   border-bottom: 1px #48494a solid;
+  @media (max-width: ${mobileQuery}px) {
+    padding: 1.7em 1.2em 1.2em;
+  }
 `
 
 const Logo = styled.img`
   width: 180px;
+  @media (max-width: ${mobileQuery}px) {
+    width: 140px;
+  }
 `
 
 const KidsLogo = styled.img`

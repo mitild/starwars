@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { mobileQuery } from '../../StyledVariables';
 
 const CardContainer = styled.div`
-  background: ${props => `url(${props.imageurl})`};
+  background: ${props => `url(${props.imageurl}) no-repeat`};
   background-position: center;
   background-size: cover;
   height: 640px;
@@ -12,13 +13,23 @@ const CardContainer = styled.div`
   align-items: start;
   padding: 0 8em;
   font-family: "din-condensed", sans-serif;
-  text-shadow: 1px 1px 5px rgba(0,0,0,.7)
+  text-shadow: 1px 1px 5px rgba(0,0,0,.7);
+  @media (max-width: ${mobileQuery}px) {
+    padding: 0 1.2em;
+    background-position: 70%;
+    justify-content: end;
+    padding-bottom: 3em;
+    text-shadow: .5px .5px 3px rgba(0,0,0,.7);
+  }
 `
 
 const CardDescription = styled.div`
   width:  550px;
   display: flex;
   flex-direction: column;
+  @media (max-width: ${mobileQuery}px) {
+    width: 220px;
+  }
 `
 
 const CardTitle = styled.h1`
@@ -26,11 +37,17 @@ const CardTitle = styled.h1`
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: .5em;
+  @media (max-width: ${mobileQuery}px) {
+    font-size: 2rem;
+  }
 `
 
 const CardSubtitle = styled.h3`
   font-size: 1.8rem;
   font-weight: 300;
+  @media (max-width: ${mobileQuery}px) {
+    font-size: 1.3rem;
+  }
 `
 
 const CardBtn = styled.button`
@@ -47,7 +64,12 @@ const CardBtn = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #dec33b;
-    box-shadow: 5px 5px 8px rgba(124, 124, 124, 0.2)
+    box-shadow: 5px 5px 8px rgba(124, 124, 124, 0.2);
+  }
+  @media (max-width: ${mobileQuery}px) {
+    padding: 1em 3em;
+    font-size: .8rem;
+    margin-top: 1.5em;
   }  
 `
 
@@ -55,6 +77,10 @@ const CardImage = styled.img`
   width: 400px;
   margin-bottom: 2.5em;
   margin-left: -50px;
+  @media (max-width: ${mobileQuery}px) {
+    width: 250px;
+    margin-left: -35px;
+  }  
 `
 
 export { CardContainer, CardTitle, CardSubtitle, CardBtn, CardDescription, CardImage }
