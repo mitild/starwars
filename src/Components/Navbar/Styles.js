@@ -15,7 +15,7 @@ const NavContainer = styled.nav`
   padding: 1.2em 3em 0;
   border-bottom: 1px #48494a solid;
   @media (max-width: ${mobileQuery}px) {
-    padding: 1.7em 1.2em 1.2em;
+    padding: 1.7em 1.2em .2em;
   }
 `
 
@@ -50,6 +50,9 @@ const SignIn = styled.div`
     background-size: 26px;
     background-position: center
   }
+  @media (max-width: ${mobileQuery}px) {
+    font-size: .9rem;
+  }
 `
 
 const NavMenu = styled.ul`
@@ -57,6 +60,9 @@ const NavMenu = styled.ul`
   gap: 2em;
   padding: 1.5em 0 .7em;
   font-weight: 400;
+  @media (max-width: ${mobileQuery}px) {
+    padding: .9em;
+  }
 `
 const NavItem = styled.li`
   list-style: none;
